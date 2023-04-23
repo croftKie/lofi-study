@@ -11,6 +11,7 @@ body {
   background-size: 100% 200%;
   display: flex;
   flex-direction: column;
+  gap: 50px;
 }
 
 .navbar {
@@ -23,8 +24,8 @@ body {
 }
 .navbar img:nth-child(1) {
   height: 20px;
-  transform: rotateZ(180deg);
   filter: invert(100%);
+  transform: rotateZ(180deg);
 }
 .navbar img:nth-child(1):hover {
   filter: invert(14%) sepia(65%) saturate(7482%) hue-rotate(284deg) brightness(107%) contrast(88%);
@@ -34,10 +35,11 @@ body {
 .navbar img:nth-child(2) {
   height: 20px;
   filter: invert(100%);
+  filter: invert(100%);
 }
 .navbar img:nth-child(2):hover {
   filter: invert(14%) sepia(65%) saturate(7482%) hue-rotate(284deg) brightness(107%) contrast(88%);
-  transform: rotateZ(10deg);
+  transform: rotateZ(170deg);
   cursor: pointer;
 }
 
@@ -123,13 +125,21 @@ body {
   background-color: white;
   position: absolute;
   top: 0;
-  left: 80%;
-  border-left: 5px solid black;
   transition: all ease-in-out 1s;
   box-sizing: border-box;
   padding: 10px;
   display: flex;
   flex-direction: column;
+  left: 80%;
+  border-left: 5px solid black;
+}
+.settings .exitSettings img {
+  height: 20px;
+}
+.settings .exitSettings img:hover {
+  filter: invert(14%) sepia(65%) saturate(7482%) hue-rotate(284deg) brightness(107%) contrast(88%);
+  transform: rotateZ(10deg);
+  cursor: pointer;
 }
 .settings .options {
   display: flex;
@@ -151,26 +161,20 @@ body {
   color: #a514fa;
   cursor: pointer;
 }
-.settings .exitSettings img {
-  height: 20px;
-}
-.settings .exitSettings img:hover {
-  filter: invert(14%) sepia(65%) saturate(7482%) hue-rotate(284deg) brightness(107%) contrast(88%);
-  transform: rotateZ(10deg);
-  cursor: pointer;
-}
 
 .todoList {
   height: 100vh;
-  width: 30vw;
+  width: 20vw;
   background-color: white;
   position: absolute;
   top: 0;
-  right: 70%;
-  border-right: 5px solid black;
   transition: all ease-in-out 1s;
   box-sizing: border-box;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  right: 80%;
+  border-right: 5px solid black;
 }
 .todoList .exitTodo img {
   height: 20px;
@@ -193,6 +197,27 @@ body {
 
 .hidden {
   display: none;
+}
+
+.musicFrame {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 460px;
+  height: 300px;
+}
+.musicFrame input {
+  height: 40px;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+.musicFrame iframe {
+  height: 100%;
+  border: 5px solid white;
+  border-radius: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */

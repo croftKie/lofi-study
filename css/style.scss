@@ -3,6 +3,35 @@
   margin: 0;
   padding: 0;
 }
+@mixin popoutSetup {
+  height: 100vh;
+  width: 20vw;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  transition: all ease-in-out 1s;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+@mixin popoutClose {
+  height: 20px;
+  &:hover {
+    filter: invert(14%) sepia(65%) saturate(7482%) hue-rotate(284deg) brightness(107%) contrast(88%);
+    transform: rotateZ(10deg);
+    cursor: pointer;
+  }
+}
+@mixin navSVG {
+  height: 20px;
+  filter: invert(100%);
+  &:hover {
+    filter: invert(14%) sepia(65%) saturate(7482%) hue-rotate(284deg) brightness(107%) contrast(88%);
+    transform: rotateZ(170deg);
+    cursor: pointer;
+  }
+}
 
 body {
   height: 100vh;
@@ -11,6 +40,7 @@ body {
   background-size: 100% 200%;
   display: flex;
   flex-direction: column;
+  gap: 50px;
 }
 
 .navbar {
@@ -22,24 +52,13 @@ body {
   padding: 0 25px 0 25px;
 
   img:nth-child(1) {
-    height: 20px;
+    @include navSVG();
     transform: rotateZ(180deg);
-    filter: invert(100%);
-    &:hover{
-      filter: invert(14%) sepia(65%) saturate(7482%) hue-rotate(284deg) brightness(107%) contrast(88%);
-      transform: rotateZ(170deg);
-      cursor: pointer;
-    }
   }
 
   img:nth-child(2) {
-    height: 20px;
+    @include navSVG();
     filter: invert(100%);
-    &:hover{
-      filter: invert(14%) sepia(65%) saturate(7482%) hue-rotate(284deg) brightness(107%) contrast(88%);
-      transform: rotateZ(10deg);
-      cursor: pointer;
-    }
   }
 }
 
@@ -113,7 +132,6 @@ body {
       transform: rotate(90deg);
     }
 }
-
 .numericalClock{
   align-self: center;
   width: 24rem;
@@ -137,18 +155,14 @@ body {
 
 
 .settings {
-  height: 100vh;
-  width: 20vw;
-  background-color: white;
-  position: absolute;
-  top: 0;
+  @include popoutSetup();
   left: 80%;
   border-left:5px solid black;
-  transition: all ease-in-out 1s;
-  box-sizing: border-box;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
+  .exitSettings {
+    img{
+      @include popoutClose();
+    }
+  }
   .options {
     display: flex;
     flex-direction: column;
@@ -171,38 +185,14 @@ body {
     }
   }
 
-
-  .exitSettings {
-    img{
-      height: 20px;
-      &:hover {
-        filter: invert(14%) sepia(65%) saturate(7482%) hue-rotate(284deg) brightness(107%) contrast(88%);
-        transform: rotateZ(10deg);
-        cursor: pointer;
-      }
-    }
-  }
 }
 .todoList {
-  height: 100vh;
-  width: 30vw;
-  background-color: white;
-  position: absolute;
-  top: 0;
-  right: 70%;
+  @include popoutSetup();
+  right: 80%;
   border-right:5px solid black;
-  transition: all ease-in-out 1s;
-  box-sizing: border-box;
-  padding: 10px;
-
   .exitTodo {
     img{
-      height: 20px;
-      &:hover{
-        filter: invert(14%) sepia(65%) saturate(7482%) hue-rotate(284deg) brightness(107%) contrast(88%);
-        transform: rotateZ(10deg);
-        cursor: pointer;
-      }
+      @include popoutClose();
     }
   }
 }
@@ -217,4 +207,26 @@ body {
 }
 .hidden {
   display: none;
+}
+
+
+.musicFrame{
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 460px;
+  height: 300px;
+  input{
+    height: 40px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+  }
+  iframe{
+    height: 100%;
+    border: 5px solid white;
+    border-radius: 5px;
+  }
 }
